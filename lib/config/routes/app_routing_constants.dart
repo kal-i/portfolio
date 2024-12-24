@@ -1,4 +1,7 @@
 class RoutingConstants {
+  static const portfolioViewRouteName = 'portfolio';
+  static const portfolioViewRoutePath = '/';
+
   static const homeViewRouteName = 'home';
   static const homeViewRoutePath = '/';
 

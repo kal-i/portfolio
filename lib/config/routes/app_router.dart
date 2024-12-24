@@ -5,6 +5,7 @@ import 'package:portfolio/features/about/presentation/views/about_view.dart';
 import 'package:portfolio/features/contact/presentation/views/contact_view.dart';
 import 'package:portfolio/features/home/presentation/views/home_view.dart';
 import 'package:portfolio/features/projects/presentation/views/projects_view.dart';
+import 'package:portfolio/portfolio.dart';
 
 class AppRoutingConfig {
   static final _rootNavigationKey = GlobalKey<NavigatorState>(
@@ -17,31 +18,10 @@ class AppRoutingConfig {
     initialLocation: RoutingConstants.homeViewRoutePath,
     routes: [
       GoRoute(
-        name: RoutingConstants.homeViewRouteName,
-        path: RoutingConstants.homeViewRoutePath,
+        name: RoutingConstants.portfolioViewRouteName,
+        path: RoutingConstants.portfolioViewRoutePath,
         pageBuilder: (context, state) => const MaterialPage(
-          child: HomeView(),
-        ),
-      ),
-      GoRoute(
-        name: RoutingConstants.aboutViewRouteName,
-        path: RoutingConstants.aboutViewRoutePath,
-        pageBuilder: (context, state) => const MaterialPage(
-          child: AboutView(),
-        ),
-      ),
-      GoRoute(
-        name: RoutingConstants.projectViewRouteName,
-        path: RoutingConstants.projectViewRoutePath,
-        pageBuilder: (context, state) => const MaterialPage(
-          child: ProjectsView(),
-        ),
-      ),
-      GoRoute(
-        name: RoutingConstants.contactViewRouteName,
-        path: RoutingConstants.contactViewRoutePath,
-        pageBuilder: (context, state) => const MaterialPage(
-          child: ContactView(),
+          child: Portfolio(),
         ),
       ),
     ],
