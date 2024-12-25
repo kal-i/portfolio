@@ -21,6 +21,12 @@ class SvgIconPath {
 class JpgImagePath {
   static const String _jpg = '$_imagesFolder/jpg';
   static const String animatedProfile = '$_jpg/animated_profile.jpg';
+  static const String mobileHome = '$_jpg/mobile_home.jpg';
+}
+
+class PngImagePath {
+  static const String _png = '$_imagesFolder/png';
+  static const String desktopDashboard = '$_png/desktop_dashboard.png';
 }
 
 class SvgImagePath {

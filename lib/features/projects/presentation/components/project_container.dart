@@ -34,7 +34,7 @@ class ProjectContainer extends StatelessWidget {
             child: GridView.builder(
               physics: const NeverScrollableScrollPhysics(),
               gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-                maxCrossAxisExtent: 100.0,
+                maxCrossAxisExtent: 150.0,
                 mainAxisExtent: 50.0,
                 mainAxisSpacing: 10.0,
                 crossAxisSpacing: 10.0,
