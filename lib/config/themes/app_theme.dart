@@ -33,5 +33,26 @@ class AppTheme {
     ),
   );
 
-  static const mobileTextTheme = TextTheme();
+  static const mobileTextTheme = TextTheme(
+    displayLarge: TextStyle(
+      color: AppColor.headlineText,
+      fontSize: 25.0,
+      fontWeight: FontWeight.w700,
+    ),
+    titleSmall: TextStyle(
+      color: AppColor.titleText,
+      fontSize: 20.0,
+      fontWeight: FontWeight.w700,
+    ),
+    bodyLarge: TextStyle(
+      color: AppColor.navigationLinkText,
+      fontSize: 15.0,
+      fontWeight: FontWeight.w500,
+    ),
+    bodySmall: TextStyle(
+      color: AppColor.descriptionText,
+      fontSize: 12.0,
+      fontWeight: FontWeight.w400,
+    ),
+  );
 }

@@ -18,7 +18,7 @@ class ImageContainer extends StatelessWidget {
           image: AssetImage(
             path,
           ),
-          fit: BoxFit.cover,
+          fit: BoxFit.contain,
         ),
       ),
     );

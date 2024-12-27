@@ -7,12 +7,19 @@ class FontPath {}
 
 class SvgIconPath {
   static const String _svg = '$_iconsFolder/svg';
+  static const String close = '$_svg/close.svg';
   static const String cSharp = '$_svg/c#.svg';
   static const String dart = '$_svg/dart.svg';
+  static const String facebook = '$_svg/fb.svg';
   static const String figma = '$_svg/figma.svg';
   static const String flutter = '$_svg/flutter.svg';
+  static const String flutterColored = '$_svg/flutter_colored.svg';
   static const String git = '$_svg/git.svg';
+  static const String github = '$_svg/github.svg';
+  static const String gmail = '$_svg/gmail.svg';
+  static const String hamburger = '$_svg/hamburger.svg';
   static const String java = '$_svg/java.svg';
+  static const String linkedin = '$_svg/linkedin.svg';
   static const String mssqlserver = '$_svg/mssqlserver.svg';
   static const String postgresql = '$_svg/postgresql.svg';
   static const String postman = '$_svg/postman.svg';

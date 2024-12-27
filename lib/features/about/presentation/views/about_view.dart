@@ -73,6 +73,7 @@ class _MyTechStack extends StatelessWidget {
           SvgIconPath.mssqlserver,
           SvgIconPath.figma,
           SvgIconPath.git,
+          SvgIconPath.github,
           SvgIconPath.postman,
         ];
 

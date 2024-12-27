@@ -22,6 +22,7 @@ class TechnologyChip extends StatelessWidget {
           color: AppColor.chipText,
           fontSize: 12.0,
         ),
+        overflow: TextOverflow.ellipsis,
       ),
     );
   }

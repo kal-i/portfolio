@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/core/common/components/center_view.dart';
-import 'package:portfolio/core/common/components/nav_bar.dart';
 import 'package:portfolio/core/common/components/section_separator.dart';
 import 'package:portfolio/features/about/presentation/views/about_view.dart';
 import 'package:portfolio/features/contact/presentation/views/contact_view.dart';
+import 'package:portfolio/features/footer/presentation/footer.dart';
 import 'package:portfolio/features/home/presentation/views/home_view.dart';
+import 'package:portfolio/features/navigation/views/navigation.dart';
 import 'package:portfolio/features/projects/presentation/views/projects_view.dart';
 
 import 'main.dart';
@@ -34,49 +35,59 @@ class _PortfolioState extends State<Portfolio> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            NavBar(
-              scrollToSection: scrollToSection,
-            ),
-            Expanded(
-              child: CustomScrollView(
-                physics: const ClampingScrollPhysics(),
-                slivers: [
-                  SliverToBoxAdapter(
-                    child: HomeView(
-                      key: homeKey,
-                    ),
-                  ),
-                  const SliverToBoxAdapter(
-                    child: SectionSeparator(),
-                  ),
-                  SliverToBoxAdapter(
-                    child: AboutView(
-                      key: aboutKey,
-                    ),
-                  ),
-                  const SliverToBoxAdapter(
-                    child: SectionSeparator(),
-                  ),
-                  SliverToBoxAdapter(
-                    child: ProjectsView(
-                      key: projectsKey,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(
+            horizontal: 40.0,
+            vertical: 20.0,
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Navigation(
+                scrollToSection: scrollToSection,
+                navigationItems: navigationItems,
+              ),
+              Expanded(
+                child: CustomScrollView(
+                  physics: const ClampingScrollPhysics(),
+                  slivers: [
+                    SliverToBoxAdapter(
+                      child: HomeView(
+                        key: homeKey,
                       ),
                     ),
-                  const SliverToBoxAdapter(
-                    child: SectionSeparator(),
-                  ),
-                  SliverToBoxAdapter(
-                    child: ContactView(
-                      key: contactKey,
+                    const SliverToBoxAdapter(
+                      child: SectionSeparator(),
                     ),
-                  ),
-                ],
+                    SliverToBoxAdapter(
+                      child: AboutView(
+                        key: aboutKey,
+                      ),
+                    ),
+                    const SliverToBoxAdapter(
+                      child: SectionSeparator(),
+                    ),
+                    SliverToBoxAdapter(
+                      child: ProjectsView(
+                        key: projectsKey,
+                        ),
+                      ),
+                    const SliverToBoxAdapter(
+                      child: SectionSeparator(),
+                    ),
+                    SliverToBoxAdapter(
+                      child: ContactView(
+                        key: contactKey,
+                      ),
+                    ),
+                    const SliverToBoxAdapter(
+                      child: Footer(),
+                    ),
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

@@ -16,7 +16,7 @@ class ProfileContainer extends StatelessWidget {
           image: AssetImage(
             JpgImagePath.animatedProfile,
           ),
-          fit: BoxFit.cover,
+          fit: BoxFit.contain,
         ),
       ),
     );
