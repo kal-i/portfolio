@@ -25,48 +25,51 @@ class ProjectContainer extends StatelessWidget {
 
     return BaseContainer(
       child: isWide
-          ? Row(
-              children: [
-                SizedBox(
-                  height: 300.0,
-                  child: ImageContainer(
-                    path: path,
+          ? SizedBox(
+              height: 300.0,
+              child: Row(
+                children: [
+                  Expanded(
+                    child: ImageContainer(
+                      path: path,
+                    ),
                   ),
-                ),
-                const SizedBox(
-                  width: 10.0,
-                ),
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      Text(
-                        title,
-                        style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                              fontSize: 18.0,
-                            ),
-                      ),
-                      const SizedBox(
-                        height: 10.0,
-                      ),
-                      Wrap(
-                        spacing: 10.0, // Horizontal spacing
-                        runSpacing: 10.0, // Vertical spacing
-                        children: technology
-                            .map((tech) => TechnologyChip(title: tech))
-                            .toList(),
-                      ),
-                      const SizedBox(
-                        height: 20.0,
-                      ),
-                      Text(
-                        description,
-                        style: Theme.of(context).textTheme.bodySmall,
-                      ),
-                    ],
+                  const SizedBox(
+                    width: 10.0,
                   ),
-                ),
-              ],
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        Text(
+                          title,
+                          style:
+                              Theme.of(context).textTheme.titleSmall?.copyWith(
+                                    fontSize: 18.0,
+                                  ),
+                        ),
+                        const SizedBox(
+                          height: 10.0,
+                        ),
+                        Wrap(
+                          spacing: 10.0, // Horizontal spacing
+                          runSpacing: 10.0, // Vertical spacing
+                          children: technology
+                              .map((tech) => TechnologyChip(title: tech))
+                              .toList(),
+                        ),
+                        const SizedBox(
+                          height: 20.0,
+                        ),
+                        Text(
+                          description,
+                          style: Theme.of(context).textTheme.bodySmall,
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             )
           : Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
