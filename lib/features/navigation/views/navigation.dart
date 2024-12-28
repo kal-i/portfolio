@@ -5,6 +5,7 @@ import 'package:portfolio/core/constants/assets_path.dart';
 import 'package:portfolio/features/navigation/components/desktop_navigation.dart';
 import 'package:portfolio/features/navigation/components/mobile_navigation.dart';
 
+import '../../../core/models/navigation_item.dart';
 import '../../../main.dart';
 
 class Navigation extends StatelessWidget {
@@ -32,14 +33,4 @@ class Navigation extends StatelessWidget {
             navigationItems: navigationItems,
           );
   }
-}
-
-class NavigationItem {
-  const NavigationItem({
-    required this.title,
-    required this.sectionKey,
-  });
-
-  final String title;
-  final GlobalKey sectionKey;
 }

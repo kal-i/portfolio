@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:portfolio/core/constants/assets_path.dart';
+import 'package:portfolio/main.dart';
 
+import '../../../core/models/navigation_item.dart';
 import '../views/navigation.dart';
 import 'desktop_navigation.dart';
 
@@ -16,70 +18,72 @@ class MobileNavigation extends StatefulWidget {
   final List<NavigationItem> navigationItems;
 
   @override
-  _MobileNavigationState createState() => _MobileNavigationState();
+  State<MobileNavigation> createState() => _MobileNavigationState();
 }
 
-class _MobileNavigationState extends State<MobileNavigation> {
-  bool _isMenuOpen = false;
+class _MobileNavigationState extends State<MobileNavigation>
+    with SingleTickerProviderStateMixin {
+  late final _menuController = AnimationController(
+    vsync: this,
+    duration: const Duration(
+      milliseconds: 150,
+    ),
+  );
+  final ValueNotifier<bool> _isMenuOpen = ValueNotifier(false);
 
   void _toggleMenu() {
-    setState(() {
-      _isMenuOpen = !_isMenuOpen;
-    });
+    if (_menuController.isCompleted) {
+      _menuController.reverse();
+    } else {
+      _menuController.forward();
+    }
   }
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Align(
-          alignment: Alignment.topLeft,
-          child: SvgPicture.asset(
-            SvgImagePath.personalBrand,
-            height: 60.0,
-          ),
-        ),
+    return AnimatedBuilder(
+      animation: _menuController,
+      builder: (context, _) {
+        final height = 64 + _menuController.value * (56 * 4 + 64);
 
-        // The burger icon
-        Align(
-          alignment: Alignment.topRight,
-          child: IconButton(
-            icon: SvgPicture.asset(
-              _isMenuOpen ? SvgIconPath.close : SvgIconPath.hamburger,
-              height: 40.0,
-            ),
-            onPressed: _toggleMenu,
-          ),
-        ),
-
-        // The menu overlay
-        if (_isMenuOpen)
-          Positioned.fill(
-            child: GestureDetector(
-              onTap: _toggleMenu, // Close menu when tapping outside
-              child: Container(
-                color: Colors.black.withOpacity(0.5), // Semi-transparent background
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: widget.navigationItems.map(
-                        (item) {
-                      return Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 10.0),
-                         child: NavBarItem(
-                          title: item.title,
-                          onTap: () {
-                            _toggleMenu(); // Close the menu
-                            widget.scrollToSection(item.sectionKey); // Navigate
-                          },
-                        ),
-                      );
-                    },
-                  ).toList(),
+        return SizedBox(
+          height: height,
+          child: Column(
+            children: [
+              SizedBox(
+                height: 64.0,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    SvgPicture.asset(
+                      SvgImagePath.personalBrand,
+                      semanticsLabel: 'Personal Brand',
+                    ),
+                    GestureDetector(
+                      onTap: _toggleMenu,
+                      child: AnimatedIcon(
+                        icon: AnimatedIcons.menu_close,
+                        size: 30.0,
+                        progress: _menuController,
+                      ),
+                    ),
+                  ],
                 ),
               ),
-            ),
+              Expanded(
+                child: ListView.builder(
+                  itemCount: navigationItems.length,
+                  itemBuilder: (context, index) => NavBarItem(
+                    title: navigationItems[index].title,
+                    onTap:() => widget
+                        .scrollToSection(navigationItems[index].sectionKey),
+                  ),
+                ),
+              ),
+            ],
           ),
-      ],
+        );
+      },
     );
   }
 }

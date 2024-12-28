@@ -3,6 +3,7 @@ import 'package:portfolio/config/routes/app_router.dart';
 import 'package:portfolio/config/sizing/breakpoints.dart';
 import 'package:portfolio/config/themes/app_theme.dart';
 
+import 'core/models/navigation_item.dart';
 import 'features/navigation/views/navigation.dart';
 
 final GlobalKey homeKey = GlobalKey();

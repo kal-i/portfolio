@@ -28,6 +28,7 @@ class ProjectContainer extends StatelessWidget {
           ? SizedBox(
               height: 300.0,
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Expanded(
                     child: ImageContainer(
@@ -72,7 +73,6 @@ class ProjectContainer extends StatelessWidget {
               ),
             )
           : Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 SizedBox(
                   height: 300.0,

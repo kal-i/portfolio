@@ -3,7 +3,7 @@ import 'package:portfolio/core/common/components/center_view.dart';
 import 'package:portfolio/features/projects/presentation/components/project_container.dart';
 
 import '../../../../core/constants/assets_path.dart';
-import '../../models/project.dart';
+import '../../../../core/models/project.dart';
 
 class ProjectsView extends StatelessWidget {
   const ProjectsView({super.key});
@@ -50,7 +50,7 @@ class ProjectsView extends StatelessWidget {
           const SizedBox(
             height: 20.0,
           ),
-          ListView.builder(
+          ListView.separated(
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
             itemCount: projects.length,
@@ -63,6 +63,10 @@ class ProjectsView extends StatelessWidget {
                 description: project.description,
               );
             },
+            separatorBuilder: (BuildContext context, int index) =>
+                const SizedBox(
+              height: 10.0,
+            ),
           ),
         ],
       ),
