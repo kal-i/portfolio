@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../core/constants/assets_path.dart';
+import '../../data/home_data.dart';
 
 class ProfileContainer extends StatelessWidget {
   const ProfileContainer({
@@ -14,7 +15,7 @@ class ProfileContainer extends StatelessWidget {
         shape: BoxShape.circle,
         image: DecorationImage(
           image: AssetImage(
-            JpgImagePath.animatedProfile,
+            HomeData.profileImage,
           ),
           fit: BoxFit.contain,
         ),

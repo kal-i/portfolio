@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:portfolio/core/common/components/url_icon_button.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:portfolio/core/common/components/center_view.dart';
-import 'package:portfolio/core/constants/assets_path.dart';
+import 'package:portfolio/core/common/components/url_icon_button.dart';
+
+import '../../data/social_links.dart';
 
 class ContactView extends StatelessWidget {
   const ContactView({super.key});
@@ -30,28 +29,24 @@ class ContactView extends StatelessWidget {
             const SizedBox(
               height: 30.0,
             ),
-            const Row(
+            Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                UrlIconButton(
-                  iconPath: SvgIconPath.github,
-                  url: 'https://github.com/kal-i',
-                ),
-                SizedBox(
-                  width: 20.0,
-                ),
-                UrlIconButton(
-                  iconPath: SvgIconPath.linkedin,
-                  url: 'https://www.linkedin.com/in/john-paul-maceres/',
-                ),
-                SizedBox(
-                  width: 20.0,
-                ),
-                UrlIconButton(
-                  iconPath: SvgIconPath.facebook,
-                  url: 'https://www.facebook.com/johnpaul.maceres.20020929',
-                ),
-              ],
+              children: List.generate(
+                socialLinks.length,
+                    (index) {
+                  final socialLink = socialLinks[index];
+                  return Row(
+                    children: [
+                      UrlIconButton(
+                        iconPath: socialLink.iconPath,
+                        url: socialLink.url,
+                      ),
+                      if (index < socialLinks.length - 1)
+                        const SizedBox(width: 20.0), // Space between buttons
+                    ],
+                  );
+                },
+              ),
             ),
           ],
         ),

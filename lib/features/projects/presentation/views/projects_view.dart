@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/core/common/components/center_view.dart';
 import 'package:portfolio/features/projects/presentation/components/project_container.dart';
 
-import '../../../../core/constants/projects.dart';
+import '../../data/projects.dart';
 
 class ProjectsView extends StatelessWidget {
   const ProjectsView({super.key});

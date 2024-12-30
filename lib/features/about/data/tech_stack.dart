@@ -1,4 +1,4 @@
-import 'assets_path.dart';
+import '../../../core/constants/assets_path.dart';
 
 const techStack = [
   SvgIconPath.dart,

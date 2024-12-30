@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:portfolio/core/constants/assets_path.dart';
-import 'package:portfolio/main.dart';
 
-import '../../../core/constants/navigation_items.dart';
-import '../../../core/models/navigation_item.dart';
-import '../views/navigation.dart';
+import '../../../../core/constants/navigation_items.dart';
+import '../../../../core/models/navigation_item.dart';
 import 'desktop_navigation.dart';
 
 class MobileNavigation extends StatefulWidget {

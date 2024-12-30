@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:portfolio/config/sizing/breakpoints.dart';
-import 'package:portfolio/core/constants/assets_path.dart';
-import 'package:portfolio/features/navigation/components/desktop_navigation.dart';
-import 'package:portfolio/features/navigation/components/mobile_navigation.dart';
 
-import '../../../core/models/navigation_item.dart';
-import '../../../main.dart';
+import '../../../../core/models/navigation_item.dart';
+import '../components/desktop_navigation.dart';
+import '../components/mobile_navigation.dart';
 
 class Navigation extends StatelessWidget {
   const Navigation({

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/core/common/components/center_view.dart';
+import 'package:portfolio/features/about/data/about_data.dart';
 import 'package:portfolio/features/about/presentation/components/tech_stack_container.dart';
 
-import '../../../../core/constants/tech_stack.dart';
+import '../../data/tech_stack.dart';
 
 class AboutView extends StatelessWidget {
   const AboutView({super.key});
@@ -33,21 +34,14 @@ class _AboutMe extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Text(
-          'About',
+          AboutData.aboutTitle,
           style: Theme.of(context).textTheme.titleSmall,
         ),
         const SizedBox(
           height: 10.0,
         ),
         Text(
-          '''
-I am a fourth-year IT student at STI College Legazpi, passionate about building desktop and mobile applications.
-\n\nMy development journey began in Senior High when our curriculum introduced me to Java. Java was the first programming language I learned, and I quickly fell in love with its OOP concepts, igniting my passion for software development. From there, I built console-based and GUI applications using Swing. But my pursuit for building a more modern and intuitive software has led me to my next language C#. 
-\n\nWith C#, I gain a more in-depth understanding of OOP,  basic concepts of software design, and my first experience with relational databases. I applied these skills by developing a loan management system using C# and MS SQL Server as part of our curriculum. During this project, I learned about database normalization and frontend frameworks like Guna.
-\n\nRecently, I’ve been exploring cross-platform development with Dart and Flutter for my capstone project. Flutter has expanded my skills in creating UI, handling navigation and state management, REST API integration with asynchronous programming and HTTP, and clean architecture.
-\n\nOn the backend, I’ve been learning Dart and Dart Frog, which introduced me to  routes, middleware, basic and bearer authentication, and connecting client-side apps to backend services.
-\n\nI am continuously learning to expand my knowledge of software development and stay relevant in the tech industry.
-          ''',
+          AboutData.aboutDescription,
           style: Theme.of(context).textTheme.bodySmall,
           textAlign: TextAlign.justify,
         ),
@@ -69,14 +63,14 @@ class _MyTechStack extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Text(
-              'Technology',
+              AboutData.techTitle,
               style: Theme.of(context).textTheme.titleSmall,
             ),
             const SizedBox(
               height: 10.0,
             ),
             Text(
-              'I am familiar with:',
+              AboutData.techDescription,
               style: Theme.of(context).textTheme.bodySmall,
             ),
             const SizedBox(

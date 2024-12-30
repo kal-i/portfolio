@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../../core/constants/assets_path.dart';
-import '../../../core/models/navigation_item.dart';
+import '../../../../core/constants/assets_path.dart';
+import '../../../../core/models/navigation_item.dart';
 
 class DesktopNavigation extends StatelessWidget {
   const DesktopNavigation({

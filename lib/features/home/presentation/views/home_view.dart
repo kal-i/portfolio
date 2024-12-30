@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:portfolio/core/common/components/center_view.dart';
+import 'package:portfolio/features/home/data/home_data.dart';
 import 'package:portfolio/features/home/presentation/components/profile_container.dart';
 
 import '../../../../config/sizing/breakpoints.dart';
@@ -39,7 +40,7 @@ class _DesktopHomeView extends StatelessWidget {
                 ),
                 Expanded(
                   child: SvgPicture.asset(
-                    SvgImagePath.buildingBlocks,
+                    HomeData.buildingBlocksImage,
                   ),
                 ),
               ],
@@ -49,7 +50,7 @@ class _DesktopHomeView extends StatelessWidget {
             height: 50.0,
           ),
           Text(
-            'Hi! I\'m John Paul Maceres,\nAn Aspiring Software Developer',
+            HomeData.introductionTitle,
             style: Theme.of(context).textTheme.displayLarge?.copyWith(
                   height: 1.3,
                 ),
@@ -58,7 +59,7 @@ class _DesktopHomeView extends StatelessWidget {
             height: 20.0,
           ),
           Text(
-            'An aspirant who embraces simplicity and minimalism, passionate about building desktop and mobile applications.',
+            HomeData.introductionDescription,
             style: Theme.of(context).textTheme.bodySmall,
             textAlign: TextAlign.justify,
           ),
@@ -86,13 +87,13 @@ class _MobileHomeView extends StatelessWidget {
                   child: ProfileContainer(),
                 ),
                 Positioned(
-                  top: 100.0, // Adjust to control vertical overlap
-                  right: 10.0, // Adjust to control horizontal overlap
+                  top: 100.0,
+                  right: 10.0,
                   child: SizedBox(
-                    height: 200.0, // Adjust size if needed
+                    height: 200.0,
                     width: 200.0,
                     child: SvgPicture.asset(
-                      SvgImagePath.buildingBlocks,
+                      HomeData.buildingBlocksImage,
                     ),
                   ),
                 ),
@@ -103,16 +104,16 @@ class _MobileHomeView extends StatelessWidget {
             height: 0.0,
           ),
           Text(
-            'Hi! I\'m John Paul Maceres,\nAn Aspiring Software Developer',
+            HomeData.introductionTitle,
             style: Theme.of(context).textTheme.displayLarge?.copyWith(
-              height: 1.3,
-            ),
+                  height: 1.3,
+                ),
           ),
           const SizedBox(
             height: 20.0,
           ),
           Text(
-            'An aspirant who embraces simplicity and minimalism, passionate about building desktop and mobile applications.',
+            HomeData.introductionDescription,
             style: Theme.of(context).textTheme.bodySmall,
             textAlign: TextAlign.justify,
           ),

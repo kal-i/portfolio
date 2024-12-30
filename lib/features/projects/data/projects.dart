@@ -1,5 +1,5 @@
-import '../models/project.dart';
-import 'assets_path.dart';
+import '../../../core/models/project.dart';
+import '../../../core/constants/assets_path.dart';
 
 final List<Project> projects = [
   const Project(

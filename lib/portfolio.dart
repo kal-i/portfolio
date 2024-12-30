@@ -4,11 +4,11 @@ import 'package:portfolio/features/about/presentation/views/about_view.dart';
 import 'package:portfolio/features/contact/presentation/views/contact_view.dart';
 import 'package:portfolio/features/footer/presentation/footer.dart';
 import 'package:portfolio/features/home/presentation/views/home_view.dart';
-import 'package:portfolio/features/navigation/views/navigation.dart';
 import 'package:portfolio/features/projects/presentation/views/projects_view.dart';
 
 import 'core/constants/app_keys.dart';
 import 'core/constants/navigation_items.dart';
+import 'features/navigation/presentation/views/navigation.dart';
 
 class Portfolio extends StatefulWidget {
   const Portfolio({super.key});
@@ -19,6 +19,12 @@ class Portfolio extends StatefulWidget {
 
 class _PortfolioState extends State<Portfolio> {
   final ScrollController _scrollController = ScrollController();
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
 
   void scrollToSection(GlobalKey key) {
     final context = key.currentContext;
@@ -43,53 +49,62 @@ class _PortfolioState extends State<Portfolio> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Navigation(
-                scrollToSection: scrollToSection,
-                navigationItems: navigationItems,
-              ),
+              _buildNavBar(),
               Expanded(
-                child: CustomScrollView(
-                  physics: const ClampingScrollPhysics(),
-                  slivers: [
-                    SliverToBoxAdapter(
-                      child: HomeView(
-                        key: homeKey,
-                      ),
-                    ),
-                    const SliverToBoxAdapter(
-                      child: SectionSeparator(),
-                    ),
-                    SliverToBoxAdapter(
-                      child: AboutView(
-                        key: aboutKey,
-                      ),
-                    ),
-                    const SliverToBoxAdapter(
-                      child: SectionSeparator(),
-                    ),
-                    SliverToBoxAdapter(
-                      child: ProjectsView(
-                        key: projectsKey,
-                        ),
-                      ),
-                    const SliverToBoxAdapter(
-                      child: SectionSeparator(),
-                    ),
-                    SliverToBoxAdapter(
-                      child: ContactView(
-                        key: contactKey,
-                      ),
-                    ),
-                    const SliverToBoxAdapter(
-                      child: Footer(),
-                    ),
-                  ],
-                ),
+                child: _buildPortfolioSections(),
               ),
             ],
           ),
         ),
       ),
+    );
+  }
+
+  Widget _buildNavBar() {
+    return Navigation(
+      scrollToSection: scrollToSection,
+      navigationItems: navigationItems,
+    );
+  }
+
+  Widget _buildPortfolioSections() {
+    return CustomScrollView(
+      controller: _scrollController,
+      physics: const ClampingScrollPhysics(),
+      slivers: [
+        SliverToBoxAdapter(
+          child: HomeView(
+            key: homeKey,
+          ),
+        ),
+        const SliverToBoxAdapter(
+          child: SectionSeparator(),
+        ),
+        SliverToBoxAdapter(
+          child: AboutView(
+            key: aboutKey,
+          ),
+        ),
+        const SliverToBoxAdapter(
+          child: SectionSeparator(),
+        ),
+        SliverToBoxAdapter(
+          child: ProjectsView(
+            key: projectsKey,
+          ),
+        ),
+        const SliverToBoxAdapter(
+          child: SectionSeparator(),
+        ),
+        SliverToBoxAdapter(
+          child: ContactView(
+            key: contactKey,
+          ),
+        ),
+        const SliverToBoxAdapter(
+          child: Footer(),
+        ),
+      ],
     );
   }
 }
