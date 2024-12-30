@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/core/common/components/center_view.dart';
-import 'package:portfolio/core/constants/assets_path.dart';
 import 'package:portfolio/features/about/presentation/components/tech_stack_container.dart';
+
+import '../../../../core/constants/tech_stack.dart';
 
 class AboutView extends StatelessWidget {
   const AboutView({super.key});
@@ -63,19 +64,6 @@ class _MyTechStack extends StatelessWidget {
     return LayoutBuilder(
       builder: (context, constraints) {
         const double itemSize = 80;
-
-        const techStack = [
-          SvgIconPath.dart,
-          SvgIconPath.cSharp,
-          SvgIconPath.java,
-          SvgIconPath.flutter,
-          SvgIconPath.postgresql,
-          SvgIconPath.mssqlserver,
-          SvgIconPath.figma,
-          SvgIconPath.git,
-          SvgIconPath.github,
-          SvgIconPath.postman,
-        ];
 
         return Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,

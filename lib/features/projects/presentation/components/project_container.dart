@@ -1,22 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/config/sizing/breakpoints.dart';
 import 'package:portfolio/core/common/components/base_container.dart';
-import 'package:portfolio/features/home/presentation/components/image_container.dart';
 import 'package:portfolio/features/projects/presentation/components/technology_chip.dart';
+
+import '../../../../core/common/components/image_container.dart';
+import '../../../../core/models/project.dart';
 
 class ProjectContainer extends StatelessWidget {
   const ProjectContainer({
     super.key,
-    required this.path,
-    required this.title,
-    required this.technology,
-    required this.description,
+    required this.project,
   });
 
-  final String path;
-  final String title;
-  final List<String> technology;
-  final String description;
+  final Project project;
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +28,7 @@ class ProjectContainer extends StatelessWidget {
                 children: [
                   Expanded(
                     child: ImageContainer(
-                      path: path,
+                      path: project.imagePath,
                     ),
                   ),
                   const SizedBox(
@@ -43,7 +39,7 @@ class ProjectContainer extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
                         Text(
-                          title,
+                          project.title,
                           style:
                               Theme.of(context).textTheme.titleSmall?.copyWith(
                                     fontSize: 18.0,
@@ -55,7 +51,7 @@ class ProjectContainer extends StatelessWidget {
                         Wrap(
                           spacing: 10.0, // Horizontal spacing
                           runSpacing: 10.0, // Vertical spacing
-                          children: technology
+                          children: project.technology
                               .map((tech) => TechnologyChip(title: tech))
                               .toList(),
                         ),
@@ -63,7 +59,7 @@ class ProjectContainer extends StatelessWidget {
                           height: 20.0,
                         ),
                         Text(
-                          description,
+                          project.description,
                           style: Theme.of(context).textTheme.bodySmall,
                         ),
                       ],
@@ -77,14 +73,14 @@ class ProjectContainer extends StatelessWidget {
                 SizedBox(
                   height: 300.0,
                   child: ImageContainer(
-                    path: path,
+                    path: project.imagePath,
                   ),
                 ),
                 const SizedBox(
                   width: 10.0,
                 ),
                 Text(
-                  title,
+                  project.title,
                   style: Theme.of(context).textTheme.titleSmall?.copyWith(
                         fontSize: 18.0,
                       ),
@@ -95,7 +91,7 @@ class ProjectContainer extends StatelessWidget {
                 Wrap(
                   spacing: 10.0, // Horizontal spacing
                   runSpacing: 10.0, // Vertical spacing
-                  children: technology
+                  children: project.technology
                       .map((tech) => TechnologyChip(title: tech))
                       .toList(),
                 ),
@@ -103,7 +99,7 @@ class ProjectContainer extends StatelessWidget {
                   height: 20.0,
                 ),
                 Text(
-                  description,
+                  project.description,
                   style: Theme.of(context).textTheme.bodySmall,
                 ),
               ],

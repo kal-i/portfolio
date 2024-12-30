@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/constants/assets_path.dart';
-
 class ImageContainer extends StatelessWidget {
   const ImageContainer({
     super.key,

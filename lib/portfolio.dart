@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/core/common/components/center_view.dart';
 import 'package:portfolio/core/common/components/section_separator.dart';
 import 'package:portfolio/features/about/presentation/views/about_view.dart';
 import 'package:portfolio/features/contact/presentation/views/contact_view.dart';
@@ -8,7 +7,8 @@ import 'package:portfolio/features/home/presentation/views/home_view.dart';
 import 'package:portfolio/features/navigation/views/navigation.dart';
 import 'package:portfolio/features/projects/presentation/views/projects_view.dart';
 
-import 'main.dart';
+import 'core/constants/app_keys.dart';
+import 'core/constants/navigation_items.dart';
 
 class Portfolio extends StatefulWidget {
   const Portfolio({super.key});
