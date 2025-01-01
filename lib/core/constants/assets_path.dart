@@ -8,7 +8,7 @@ class FontPath {}
 class SvgIconPath {
   static const String _svg = '$_iconsFolder/svg';
   static const String close = '$_svg/close.svg';
-  static const String cSharp = '$_svg/c#.svg';
+  static const String cSharp = '$_svg/c_sharp.svg';
   static const String dart = '$_svg/dart.svg';
   static const String facebook = '$_svg/fb.svg';
   static const String figma = '$_svg/figma.svg';
