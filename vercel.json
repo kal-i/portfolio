@@ -7,5 +7,11 @@
         "buildCommand": "bash ./build.sh"
       }
     }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/build/web/index.html"
+    }
   ]
 }
