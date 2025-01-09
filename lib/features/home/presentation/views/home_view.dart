@@ -12,10 +12,11 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-    final isWide = screenWidth > BreakPoints.tablet;
+    final screenWidth = MediaQuery.sizeOf(context).width;
 
-    return isWide ? const _DesktopHomeView() : const _MobileHomeView();
+    return screenWidth > BreakPoints.tablet
+        ? const _DesktopHomeView()
+        : const _MobileHomeView();
   }
 }
 
@@ -25,43 +26,45 @@ class _DesktopHomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CenterView(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
+      child: Stack(
         children: [
-          SizedBox(
-            height: 600.0,
-            child: Row(
-              children: [
-                const Expanded(
-                  child: ProfileContainer(),
-                ),
-                const SizedBox(
-                  width: 60.0,
-                ),
-                Expanded(
-                  child: SvgPicture.asset(
-                    HomeData.buildingBlocksImage,
-                  ),
-                ),
-              ],
+          /// Background
+          Positioned.fill(
+            child: SvgPicture.asset(
+              alignment: Alignment.centerRight,
+              SvgImagePath.techStacks,
             ),
           ),
-          const SizedBox(
-            height: 50.0,
-          ),
-          Text(
-            HomeData.introductionTitle,
-            style: Theme.of(context).textTheme.displayLarge?.copyWith(
-                  height: 1.3,
+      
+          /// Main Content
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Align(
+                alignment: Alignment.centerLeft,
+                child: SizedBox(
+                  height: 600.0,
+                  child: ProfileContainer(),
                 ),
-          ),
-          const SizedBox(
-            height: 20.0,
-          ),
-          Text(
-            HomeData.introductionDescription,
-            style: Theme.of(context).textTheme.bodySmall,
-            textAlign: TextAlign.justify,
+              ),
+              const SizedBox(
+                height: 20.0,
+              ),
+              Text(
+                HomeData.introductionTitle,
+                style: Theme.of(context).textTheme.displayLarge?.copyWith(
+                      height: 1.3,
+                    ),
+              ),
+              const SizedBox(
+                height: 20.0,
+              ),
+              Text(
+                HomeData.introductionDescription,
+                style: Theme.of(context).textTheme.bodySmall,
+                textAlign: TextAlign.justify,
+              ),
+            ],
           ),
         ],
       ),
@@ -74,51 +77,44 @@ class _MobileHomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CenterView(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          SizedBox(
-            height: 600.0,
-            child: Stack(
-              children: [
-                const Align(
-                  alignment: Alignment.centerLeft,
-                  child: ProfileContainer(),
-                ),
-                Positioned(
-                  top: 100.0,
-                  right: 10.0,
-                  child: SizedBox(
-                    height: 200.0,
-                    width: 200.0,
-                    child: SvgPicture.asset(
-                      HomeData.buildingBlocksImage,
-                    ),
-                  ),
-                ),
-              ],
+    return Stack(
+      children: [
+        /// Background
+        Positioned.fill(
+          child: SvgPicture.asset(
+            alignment: Alignment.centerRight,
+            SvgImagePath.techStacks,
+          ),
+        ),
+
+        /// Main Content
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(
+              height: 300.0,
+              child: ProfileContainer(),
             ),
-          ),
-          const SizedBox(
-            height: 0.0,
-          ),
-          Text(
-            HomeData.introductionTitle,
-            style: Theme.of(context).textTheme.displayLarge?.copyWith(
-                  height: 1.3,
-                ),
-          ),
-          const SizedBox(
-            height: 20.0,
-          ),
-          Text(
-            HomeData.introductionDescription,
-            style: Theme.of(context).textTheme.bodySmall,
-            textAlign: TextAlign.justify,
-          ),
-        ],
-      ),
+            const SizedBox(
+              height: 50.0,
+            ),
+            Text(
+              HomeData.introductionTitle,
+              style: Theme.of(context).textTheme.displayLarge?.copyWith(
+                    height: 1.3,
+                  ),
+            ),
+            const SizedBox(
+              height: 20.0,
+            ),
+            Text(
+              HomeData.introductionDescription,
+              style: Theme.of(context).textTheme.bodySmall,
+              textAlign: TextAlign.justify,
+            ),
+          ],
+        ),
+      ],
     );
   }
 }

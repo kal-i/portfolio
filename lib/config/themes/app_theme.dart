@@ -6,6 +6,10 @@ class AppTheme {
 
   static ThemeData light = ThemeData(
     scaffoldBackgroundColor: AppColor.background,
+    dividerTheme: const DividerThemeData(
+      color: AppColor.outline,
+      thickness: 2.0,
+    ),
     fontFamily: 'Montserrat',
     textTheme: desktopTextTheme,
   );

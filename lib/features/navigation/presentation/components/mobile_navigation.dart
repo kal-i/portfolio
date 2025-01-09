@@ -28,7 +28,6 @@ class _MobileNavigationState extends State<MobileNavigation>
       milliseconds: 150,
     ),
   );
-  final ValueNotifier<bool> _isMenuOpen = ValueNotifier(false);
 
   void _toggleMenu() {
     if (_menuController.isCompleted) {

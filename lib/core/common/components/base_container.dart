@@ -20,11 +20,19 @@ class BaseContainer extends StatelessWidget {
       height: height,
       padding: const EdgeInsets.all(10.0),
       decoration: BoxDecoration(
-        border: Border.all(
-          color: AppColor.outline,
-        ),
+        // border: Border.all(
+        //   color: AppColor.outline,
+        // ),
         borderRadius: BorderRadius.circular(10.0),
-        color: AppColor.container,
+        boxShadow: const [
+          BoxShadow(
+            color: Color(0xFFE3E8FF),
+            blurRadius: 4.0,
+            spreadRadius: 0.0,
+            offset: Offset(0.0, 4.0),
+          ),
+        ],
+        color: Color(0xFFF6F7FF),
       ),
       child: child,
     );
